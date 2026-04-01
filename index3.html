@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Киномакс — кинотеатр, билеты, мультикарта</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="header">
+            <div class="logo-row">
+                <div class="logo">КИНОМАКС</div>
+                <button class="personal-btn" id="personalBtn">ЛИЧНЫЙ КАБИНЕТ</button>
+            </div>
+            <div class="tabs-container">
+                <div class="tabs-scroll" id="tabsList">
+                    <button class="tab-btn active" data-tab="today">СЕГОДНЯ</button>
+                    <button class="tab-btn" data-tab="soon">СКОРО</button>
+                    <button class="tab-btn" data-tab="offers">ПРЕДЛОЖЕНИЯ И КАРТЫ</button>
+                    <button class="tab-btn" data-tab="cinemas">КИНОТЕАТРЫ</button>
+                    <button class="tab-btn" data-tab="action">АКЦИИ</button>
+                    <button class="tab-btn" data-tab="concerts">КОНЦЕРТЫ</button>
+                    <button class="tab-btn" data-tab="vip">VIP ЗАЛЫ</button>
+                    <button class="tab-btn" data-tab="cafe">КАФЕ & БАР</button>
+                    <button class="tab-btn" data-tab="news">НОВОСТИ</button>
+                    <button class="tab-btn" data-tab="schedule">РАСПИСАНИЕ</button>
+                    <button class="tab-btn" data-tab="loyalty">ПРОГРАММА ЛОЯЛЬНОСТИ</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="fon">
+            <img src="./img/Screenshot_20260323_102131 1.png" alt="Киномакс фон" onerror="this.style.display='none'">
+        </div>
+
+        <!-- ПРОФИЛЬ -->
+        <div class="content-section" id="profileTab">
+            <div class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-title">Личный кабинет</div>
+                    <div class="profile-subtitle">Зарегистрируйтесь, чтобы получать бонусы и специальные предложения
+                    </div>
+                    <form id="registrationForm">
+                        <div class="form-group"><label>ФИО</label><input type="text" id="fullName"
+                                placeholder="Иванов Иван Иванович" required></div>
+                        <div class="form-group"><label>Телефон</label><input type="tel" id="phone"
+                                placeholder="+7 (999) 123-45-67" required></div>
+                        <div class="form-group"><label>Email</label><input type="email" id="email"
+                                placeholder="example@mail.ru" required></div>
+                        <div class="form-group"><label>Пароль</label><input type="password" id="password"
+                                placeholder="Придумайте пароль" required></div>
+                        <button type="submit" class="register-btn">Зарегистрироваться</button>
+                    </form>
+                    <div id="profileInfo" style="display: none;">
+                        <div class="profile-info">
+                            <h4>👤 Информация о пользователе</h4>
+                            <div class="profile-data" id="userDataDisplay"></div><button class="logout-btn"
+                                id="logoutBtn">Выйти из аккаунта</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЕГОДНЯ - фильмы с картинками -->
+        <div class="content-section active-section" id="todayTab">
+            <div class="movies-list">
+                <div class="movie-item" data-movie="ДОМОВЕНОК КУЗЯ 2">
+                    <div class="movie-poster-icon">
+                        <img src="./img/11161218.jpg" alt="Домовенок Кузя 2"
+                            onerror="this.src='https://placehold.co/400x600/2a2f3f/f9b43a?text=Кузя'">
+                    </div>
+                    <div class="movie-info">
+                        <span class="movie-title">ДОМОВЕНОК КУЗЯ 2</span>
+                        <span class="rating-stars">⭐ 8.7/10</span>
+                    </div>
+                </div>
+                <div class="movie-item" data-movie="КРИК 7">
+                    <div class="movie-poster-icon">
+                        <img src="./img/крик.png" alt="Крик 7"
+                            onerror="this.src='https://placehold.co/400x600/2a2f3f/f9b43a?text=Крик'">
+                    </div>
+                    <div class="movie-info">
+                        <span class="movie-title">КРИК 7</span>
+                        <span class="rating-stars">⭐ 8.5/10</span>
+                    </div>
+                </div>
+                <div class="movie-item" data-movie="НАСЛЕДНИК">
+                    <div class="movie-poster-icon">
+                        <img src="./img/наследник.png" alt="Наследник"
+                            onerror="this.src='https://placehold.co/400x600/2a2f3f/f9b43a?text=Наследник'">
+                    </div>
+                    <div class="movie-info">
+                        <span class="movie-title">НАСЛЕДНИК</span>
+                        <span class="rating-stars">⭐ 8.3/10</span>
+                    </div>
+                </div>
+                <div class="movie-item" data-movie="ГОРНИЧНАЯ">
+                    <div class="movie-poster-icon">
+                        <img src="./img/горничная.png" alt="Горничная"
+                            onerror="this.src='https://placehold.co/400x600/2a2f3f/f9b43a?text=Горничная'">
+                    </div>
+                    <div class="movie-info">
+                        <span class="movie-title">ГОРНИЧНАЯ</span>
+                        <span class="rating-stars">⭐ 7.9/10</span>
+                    </div>
+                </div>
+                <div class="movie-item" data-movie="НА ЦЕПИ">
+                    <div class="movie-poster-icon">
+                        <img src="./img/на цепи.png" alt="На цепи"
+                            onerror="this.src='https://placehold.co/400x600/2a2f3f/f9b43a?text=На+цепи'">
+                    </div>
+                    <div class="movie-info">
+                        <span class="movie-title">НА ЦЕПИ</span>
+                        <span class="rating-stars">⭐ 7.6/10</span>
+                    </div>
+                </div>
+                <div class="movie-item" data-movie="ГРОЗОВОЙ ПЕРЕВАЛ">
+                    <div class="movie-poster-icon">
+                        <img src="./img/грозовой перевал.png" alt="Грозовой перевал"
+                            onerror="this.src='https://placehold.co/400x600/2a2f3f/f9b43a?text=Перевал'">
+                    </div>
+                    <div class="movie-info">
+                        <span class="movie-title">ГРОЗОВОЙ ПЕРЕВАЛ</span>
+                        <span class="rating-stars">⭐ 7.8/10</span>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="margin: 0 20px 20px; background:#0f1220; border-radius: 28px; padding: 14px 20px; display: flex; justify-content: space-between;">
+                <span style="font-weight:700;">ИК ПРОГРАММА</span>
+                <span style="color:#ffcd7e;">КЛУБ</span>
+            </div>
+        </div>
+
+        <!-- ПРЕДЛОЖЕНИЯ И КАРТЫ -->
+        <div class="content-section" id="offersTab">
+            <div class="offers-section">
+                <!-- Подарочный сертификат с модалкой выбора номинала -->
+                <div class="promo-big" style="background: linear-gradient(145deg, #1b1e2c, #0a0d16); margin-top: 20px;">
+                    <h3>🎁 Подарочный сертификат</h3>
+                    <p>Дарите эмоции! Сертификат Киномакс на любое количество сеансов, попкорн и напитки. Идеальный
+                        подарок для друзей и семьи.</p>
+                    <button class="btn-gold" id="certBuyBtn">ВЫБРАТЬ НОМИНАЛ</button>
+                </div>
+
+                <div class="section-title">💳 Мультикарта</div>
+                <div class="double-card" style="margin-bottom: 0; padding: 0;">
+                    <div class="bonus-card-compact" style="flex:1">
+                        <h4 style="font-size: 20px;">Мультикарта</h4>
+                        <div class="bonus-percent">До 15%</div>
+                        <p class="small-text" style="margin: 8px 0;">БОНУСАМИ НА КАРТУ ЛОЯЛЬНОСТИ</p><span
+                            class="link-gold" id="moreMulticard">Подробнее</span>
+                        <div class="k-symbol" style="position:relative; text-align:right; margin-top:12px;">K</div>
+                    </div>
+                    <div class="bonus-card-compact" style="flex:1">
+                        <p style="font-size:14px;">✨ Бонусная карта от Киномакс "Мультикарта"</p>
+                        <p class="small-text">Бонусный модный сплатишь до 90% от стоимости билетов и 50% от стоимости
+                            продукции бара.</p><span class="link-gold" id="bonusMoreBtn">УЗНАТЬ БОЛЬШЕ</span>
+                    </div>
+                </div>
+                <div style="padding: 0 0 20px 0; font-size:13px; color:#b9c2e6;">*накопленные баллы можно тратить на
+                    билеты и меню бара</div>
+
+                <div class="section-title">👶 Детям</div>
+                <div class="promo-big" style="margin-top: 0;">
+                    <h3>Детский билет со скидкой 50%</h3>
+                    <p>Теперь вы знаете, как провести каникулы подрядным и интересно: разбавите прогулки на улице, играя
+                        в игры, или просто посмотреть видео-концерты и увлекательно провести время с ребёнком.</p>
+                    <button class="btn-gold" id="buyChildTicketBtn">КУПИТЬ БИЛЕТ</button>
+                </div>
+                <div class="double-card" style="padding: 0 0 24px 0;">
+                    <div class="ticket-card">
+                        <div class="discount-tag">СКИДКА 50%</div>
+                        <div class="big-price">ДЕТСКИЙ БИЛЕТ</div>
+                        <div class="small-text">ДЕТЯМ ДО 12 ЛЕТ</div>
+                        <div class="k-symbol">K</div>
+                    </div>
+                    <div class="ticket-card">
+                        <div style="font-weight:700; margin-bottom:8px;">🎁 Семейный сеанс</div>
+                        <div class="small-text">2 взрослых + 2 детских билета = скидка 30%</div>
+                        <div class="k-symbol" style="opacity:0.4;">🎬</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- остальные вкладки -->
+        <div class="content-section" id="soonTab">
+            <div class="soon-grid">
+                <div class="soon-item">✨ Домовенок 3: возвращение — 15 июня</div>
+                <div class="soon-item">🔥 Крик 8: Новая глава — 22 июня</div>
+                <div class="soon-item">🎬 Наследник: Начало — 29 июня</div>
+                <div class="soon-item">🎸 Горячий тур: концерт в кино — 5 июля</div>
+                <div class="soon-item">⭐ Графики препарата (реж. версия) — 12 июля</div>
+                <div class="soon-item">🎭 На центр: импровизация — 19 июля</div>
+            </div>
+        </div>
+        <div class="content-section" id="cinemasTab">
+            <div class="movies-list">
+                <div class="movie-item"><span>Киномакс - Альметьевск</span><span class="movie-badge">5 залов | ул.
+                        Ленина 45</span></div>
+                <div class="movie-item"><span>Киномакс - Москва</span><span class="movie-badge">IMAX | ТЦ
+                        Авиапарк</span></div>
+                <div class="movie-item"><span>Киномакс - Казань</span><span class="movie-badge">4DX | ТЦ МЕГА</span>
+                </div>
+                <div class="movie-item"><span>Киномакс - Самара</span><span class="movie-badge">VIP lounge | ул.
+                        Московская 15</span></div>
+            </div>
+        </div>
+        <div class="content-section" id="actionTab">
+            <div class="soon-grid">
+                <div class="soon-item">🔥 Понедельник - билеты 199₽ (действует до 31 декабря)</div>
+                <div class="soon-item">🍿 Попкорн-дуэт: 2 по цене 1 (каждую среду)</div>
+                <div class="soon-item">🎂 Именинникам скидка 25% + бесплатный попкорн</div>
+                <div class="soon-item">⭐ Накопительная Мультикарта +15% бонусов до конца месяца</div>
+                <div class="soon-item">🎓 Студентам скидка 20% по будням до 16:00</div>
+                <div class="soon-item">👵 Пенсионерам скидка 30% на утренние сеансы</div>
+            </div>
+        </div>
+        <div class="content-section" id="concertsTab">
+            <div class="movies-list">
+                <div class="movie-item"><span>Концерт "Горничная" LIVE</span><span class="movie-badge">16 мая
+                        19:00</span></div>
+                <div class="movie-item"><span>Наследник. Симфония</span><span class="movie-badge">23 мая 20:00</span>
+                </div>
+                <div class="movie-item"><span>Рок-хиты в кинотеатре</span><span class="movie-badge">30 мая 18:30</span>
+                </div>
+            </div>
+        </div>
+        <div class="content-section" id="vipTab">
+            <div class="promo-big" style="background:#10131e;">
+                <h3>VIP залы</h3>
+                <p>Комфортные кресла-реклайнеры, индивидуальное обслуживание, бар и безупречный сервис. Идеально для
+                    особых случаев.</p><button class="btn-gold" id="vipBtn">ЗАБРОНИРОВАТЬ</button>
+            </div>
+            <div class="double-card">
+                <div class="ticket-card">
+                    <div class="discount-tag">VIP ПРЕМИУМ</div>
+                    <div class="big-price">1500₽</div>
+                    <div class="small-text">Кресло-реклайнер + напиток + попкорн</div>
+                </div>
+                <div class="ticket-card">
+                    <div class="discount-tag">VIP ЛЮКС</div>
+                    <div class="big-price">2500₽</div>
+                    <div class="small-text">Отдельный зал + фуршет + встреча гостей</div>
+                </div>
+            </div>
+        </div>
+        <div class="content-section" id="cafeTab">
+            <div class="double-card" style="flex-direction:column; gap:12px;">
+                <div class="bonus-card-compact">🍿 Классический попкорн + напиток — 350₽</div>
+                <div class="bonus-card-compact">🌭 Хот-дог с сырным соусом — 290₽</div>
+                <div class="bonus-card-compact">🍦 Мороженое Baskin Robbins — 210₽</div>
+                <div class="bonus-card-compact">🍷 Барное меню, крафтовое пиво — от 350₽</div>
+            </div>
+        </div>
+        <div class="content-section" id="newsTab">
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">25 марта 2026</div>
+                    <div class="news-title">Открытие нового кинотеатра в Санкт-Петербурге</div>
+                    <p>Приглашаем на открытие нового формата кинопросмотра с Dolby Atmos</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">20 марта 2026</div>
+                    <div class="news-title">Специальный показ фильма "Наследник"</div>
+                    <p>Встреча с режиссером после показа 25 марта</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">15 марта 2026</div>
+                    <div class="news-title">Обновление программы лояльности</div>
+                    <p>Новые бонусы и привилегии для держателей Мультикарты</p>
+                </div>
+            </div>
+        </div>
+        <div class="content-section" id="scheduleTab">
+            <div class="movies-list">
+                <div class="movie-item"><span class="movie-title">ДОМОВЕНОК КУЗЯ 2</span><span class="movie-badge">10:00
+                        13:00 16:00 19:00 22:00</span></div>
+                <div class="movie-item"><span class="movie-title">КРИК 7</span><span class="movie-badge">11:00 14:00
+                        17:00 20:00 23:00</span></div>
+                <div class="movie-item"><span class="movie-title">НАСЛЕДНИК</span><span class="movie-badge">12:00 15:00
+                        18:00 21:00</span></div>
+            </div>
+        </div>
+        <div class="content-section" id="loyaltyTab">
+            <div class="promo-big">
+                <h3>Программа лояльности "Мультикарта"</h3>
+                <p>✓ Накопление до 15% бонусами от стоимости билетов<br>✓ Бонусы можно тратить на билеты и еду в
+                    баре<br>✓ Приветственные 500 бонусов при регистрации<br>✓ Специальные предложения для
+                    участников<br>✓ Дополнительные скидки в день рождения</p><button class="btn-gold"
+                    id="loyaltyBtn">ПОДРОБНЕЕ О ПРОГРАММЕ</button>
+            </div>
+        </div>
+
+        <div class="clients-block">
+            <div class="clients-title">ДЛЯ КЛИЕНТОВ</div>
+            <div class="clients-tags"><span class="client-tag">КИНОТЕАТРЫ</span><span class="client-tag">АРТ</span><span
+                    class="client-tag">МУЛЬТИКАРТА</span><span class="client-tag">ЭКСКЛЮЗИВНЫЕ БИЛЕТЫ</span><span
+                    class="client-tag">УЧАСТНИКИ ФОРА</span><span class="client-tag">УЧАСТНИКИ ИМЕНИ</span><span
+                    class="client-tag">УЧАСТНИКИ ЗАПАСОВ</span><span class="client-tag">УЧАСТНИКИ ТЕАТРА</span><span
+                    class="client-tag">УЧАСТНИКИ ПРЕСС-СЕКЦИИ</span><span class="client-tag">УЧАСТНИКИ НА
+                    САЙТЕ</span><span class="client-tag">КОМПЛЕКТЫ</span><span class="client-tag">ДЕТСКИЕ
+                    ПРОДУКТЫ</span></div>
+        </div>
+
+        <div class="footer-contacts">
+            <div class="footer-contacts-content">
+                <div class="footer-contact-info">
+                    <h4>📞 Контактная информация</h4>
+                    <p>Горячая линия: <strong>8-800-555-35-35</strong></p>
+                    <p>Email: <a href="mailto:support@kinomax.ru">support@kinomax.ru</a></p>
+                    <p>Telegram: <a href="#">@kinomax_support</a></p>
+                    <p>🏢 Главный офис: г. Москва, ул. Кино, д. 10</p>
+                    <p>⏰ Режим работы: ежедневно с 9:00 до 23:00</p>
+                </div>
+                <div class="footer-social">
+                    <h4>📱 Мы в соцсетях</h4>
+                    <div class="social-icons"><span class="social-icon"
+                            onclick="showModal('VK: vk.com/kinomax')">VK</span><span class="social-icon"
+                            onclick="showModal('Telegram: t.me/kinomax')">Telegram</span><span class="social-icon"
+                            onclick="showModal('YouTube: youtube.com/kinomax')">YouTube</span><span class="social-icon"
+                            onclick="showModal('OK: ok.ru/kinomax')">OK</span></div>
+                </div>
+            </div>
+            <div class="footer-bottom">Киномакс — сеть кинотеатров. Билеты онлайн, акции, мультикарта. 0+</div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для выбора номинала -->
+    <div id="nominalModal" class="modal">
+        <div class="modal-content">
+            <h3 style="margin-bottom:12px;">🎁 Выберите номинал</h3>
+            <p style="margin-bottom:10px; color:#b9c2e6;">Подарочный сертификат Киномакс</p>
+            <div class="nominal-buttons">
+                <button class="nominal-btn" data-nominal="500">500 ₽</button>
+                <button class="nominal-btn" data-nominal="1000">1000 ₽</button>
+                <button class="nominal-btn" data-nominal="2000">2000 ₽</button>
+            </div>
+            <button id="closeNominalModal" style="background:#2a2f3f; color:#ffcd7e;">Отмена</button>
+        </div>
+    </div>
+
+    <!-- Обычное модальное окно -->
+    <div id="simpleModal" class="modal">
+        <div class="modal-content">
+            <h3 style="margin-bottom:12px;">Киномакс</h3>
+            <p id="modalMessage">Билет успешно добавлен в корзину!</p><button id="closeModalBtn">Отлично</button>
+        </div>
+    </div>
+
+    <script>
+        // Переключение вкладок
+        const tabs = document.querySelectorAll('.tab-btn');
+        const sections = {
+            today: document.getElementById('todayTab'),
+            soon: document.getElementById('soonTab'),
+            offers: document.getElementById('offersTab'),
+            cinemas: document.getElementById('cinemasTab'),
+            action: document.getElementById('actionTab'),
+            concerts: document.getElementById('concertsTab'),
+            vip: document.getElementById('vipTab'),
+            cafe: document.getElementById('cafeTab'),
+            news: document.getElementById('newsTab'),
+            schedule: document.getElementById('scheduleTab'),
+            loyalty: document.getElementById('loyaltyTab'),
+            profile: document.getElementById('profileTab')
+        };
+
+        function activateTab(tabId) {
+            Object.values(sections).forEach(section => { if (section) section.classList.remove('active-section'); });
+            if (sections[tabId]) sections[tabId].classList.add('active-section');
+            tabs.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-tab') === tabId) btn.classList.add('active');
+            });
+        }
+
+        tabs.forEach(btn => {
+            btn.addEventListener('click', () => { const tabName = btn.getAttribute('data-tab'); if (tabName && sections[tabName]) activateTab(tabName); });
+        });
+
+        // Модальное окно для выбора номинала
+        const nominalModal = document.getElementById('nominalModal');
+        const simpleModal = document.getElementById('simpleModal');
+        const modalMsg = document.getElementById('modalMessage');
+
+        window.showModal = function (text) {
+            modalMsg.innerText = text;
+            simpleModal.classList.add('active-modal');
+        };
+
+        function closeNominalModal() {
+            nominalModal.classList.remove('active-modal');
+        }
+
+        function showNominalModal() {
+            nominalModal.classList.add('active-modal');
+        }
+
+        // Обработчик для кнопки "ВЫБРАТЬ НОМИНАЛ"
+        const certBuyBtn = document.getElementById('certBuyBtn');
+        if (certBuyBtn) {
+            certBuyBtn.addEventListener('click', showNominalModal);
+        }
+
+        // Обработчики для кнопок выбора номинала
+        document.querySelectorAll('.nominal-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const nominal = btn.getAttribute('data-nominal');
+                closeNominalModal();
+                showModal(`Подарочный сертификат на ${nominal} ₽ добавлен в корзину! Оплатите в кинотеатре или на сайте.`);
+            });
+        });
+
+        // Закрытие модалки номинала
+        document.getElementById('closeNominalModal')?.addEventListener('click', closeNominalModal);
+        nominalModal.addEventListener('click', (e) => { if (e.target === nominalModal) closeNominalModal(); });
+
+        // Закрытие обычной модалки
+        document.getElementById('closeModalBtn').addEventListener('click', () => simpleModal.classList.remove('active-modal'));
+        simpleModal.addEventListener('click', (e) => { if (e.target === simpleModal) simpleModal.classList.remove('active-modal'); });
+
+        // Регистрация
+        const registrationForm = document.getElementById('registrationForm');
+        const profileInfoDiv = document.getElementById('profileInfo');
+        const userDataDisplay = document.getElementById('userDataDisplay');
+
+        function loadSavedUser() {
+            const savedUser = localStorage.getItem('kinomax_user');
+            if (savedUser) { const user = JSON.parse(savedUser); showUserProfile(user); }
+        }
+
+        function showUserProfile(user) {
+            registrationForm.style.display = 'none';
+            profileInfoDiv.style.display = 'block';
+            userDataDisplay.innerHTML = `<p><strong>ФИО:</strong> ${user.fullName}</p><p><strong>Телефон:</strong> ${user.phone}</p><p><strong>Email:</strong> ${user.email}</p><p><strong>Дата регистрации:</strong> ${user.regDate}</p><p><strong>Бонусные баллы:</strong> ${user.bonus || 500}</p>`;
+        }
+
+        if (registrationForm) {
+            registrationForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const fullName = document.getElementById('fullName').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value;
+                if (!fullName || !phone || !email || !password) { showModal('Пожалуйста, заполните все поля!'); return; }
+                const userData = { fullName, phone, email, regDate: new Date().toLocaleDateString('ru-RU'), bonus: 500 };
+                localStorage.setItem('kinomax_user', JSON.stringify(userData));
+                showModal('Регистрация успешно завершена! Вам начислено 500 бонусных баллов.');
+                showUserProfile(userData);
+            });
+        }
+
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                localStorage.removeItem('kinomax_user');
+                registrationForm.reset();
+                registrationForm.style.display = 'block';
+                profileInfoDiv.style.display = 'none';
+                showModal('Вы вышли из аккаунта');
+            });
+        }
+        loadSavedUser();
+
+        const personalBtn = document.getElementById('personalBtn');
+        if (personalBtn) personalBtn.addEventListener('click', () => activateTab('profile'));
+
+        // Остальные кнопки
+        document.getElementById('buyChildTicketBtn')?.addEventListener('click', () => showModal('Детский билет со скидкой 50% добавлен. Выберите сеанс в кинотеатре!'));
+        document.getElementById('moreMulticard')?.addEventListener('click', () => showModal('Мультикарта: до 15% бонусами, кешбэк до 90% на билеты!'));
+        document.getElementById('bonusMoreBtn')?.addEventListener('click', () => showModal('Бонусная карта "Мультикарта": начисление до 15% от стоимости билетов!'));
+        document.getElementById('vipBtn')?.addEventListener('click', () => showModal('VIP зал: бронирование на сайте или по телефону.'));
+        document.getElementById('loyaltyBtn')?.addEventListener('click', () => showModal('Подробная информация о программе лояльности доступна в кинотеатрах.'));
+
+        // Клики по фильмам
+        document.querySelectorAll('.movie-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const movieName = item.querySelector('.movie-title')?.innerText || 'фильм';
+                showModal(`Вы выбрали фильм "${movieName}". Выберите удобное время сеанса.`);
+            });
+        });
+
+        document.querySelectorAll('.soon-item').forEach(item => { item.addEventListener('click', () => showModal(`Предстоящее событие: ${item.innerText}. Скоро в прокате!`)); });
+        document.querySelectorAll('.news-card').forEach(card => { card.addEventListener('click', () => { const title = card.querySelector('.news-title')?.innerText || 'Новость'; showModal(`${title}. Подробнее читайте в разделе новостей.`); }); });
+        document.querySelectorAll('.bonus-card-compact, .ticket-card').forEach(card => { card.addEventListener('click', () => showModal('Подробнее можно узнать в кинотеатре или на сайте.')); });
+        document.querySelectorAll('.client-tag').forEach(tag => { tag.addEventListener('click', () => showModal(`Раздел "${tag.innerText}" — скоро будут доступны специальные предложения.`)); });
+    </script>
+</body>
+
+</html>
